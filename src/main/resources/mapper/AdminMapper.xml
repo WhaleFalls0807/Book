@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyz.mapper.AdminMapper">
+
+    <select id="getAdminByName" resultType="Admin">
+        select * from admin where username = #{username}
+    </select>
+
+    <update id="updateAdmin" parameterType="Admin">
+        update admin
+            set username = #{username}
+                password = #{password}
+    </update>
+
+    <update id="updatePasswordById">
+        update admin set password = #{newPassword}
+        where id = #{id}
+        and password = #{oldPassword}
+    </update>
+
+    <insert id="addAdmin" parameterType="Admin">
+        insert into admin
+            values(#{username},#{password})
+    </insert>
+
+
+    <delete id="deleteAdmin" >
+        delete from admin where username = #{username} and password = #{password}
+    </delete>
+</mapper>

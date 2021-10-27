@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyz.mapper.UserMapper">
+    <insert id="addUser" parameterType="User">
+     insert into user(id,username,nickname,password)
+     values(#{id},#{username},#{nickname},#{password})
+    </insert>
+    <select id="getUserByUsername" resultType="User">
+    select * from user where username = #{username}
+    </select>
+    <select id="getUserById" resultType="User">
+        select * from user where id = #{id}
+    </select>
+    <select id="getAllUsers" resultType="User">
+        select * from user
+    </select>
+    <select id="getUserByNickname" resultType="User">
+        select * from user where nickname = #{nickname}
+    </select>
+    <update id="updateUser" parameterType="User">
+        update user set id = #{id},
+                        username = #{username},
+                        nickname = #{nickname},
+                        password = #{password}
+    </update>
+    <delete id="deleteUser">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
