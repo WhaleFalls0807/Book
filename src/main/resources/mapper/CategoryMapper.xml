@@ -23,8 +23,8 @@
         select count(*) from category
     </select>
 
-    <insert id="addCategory" parameterType="Category">
-        insert into category value(#{})
-    </insert>
+<!--    <insert id="addCategory" parameterType="Category">-->
+<!--        insert into category value(#{})-->
+<!--    </insert>-->
 
 </mapper>

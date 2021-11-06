@@ -1,5 +1,3 @@
-<%@page import="com.lyz.beans.ShoppingCart"%>
-<%@page import="com.lyz.beans.Book"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -10,43 +8,32 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="img/logo.jpg">
+<link rel="shortcut icon" type="${pageContext.request.contextPath}/image/x-icon" href="${pageContext.request.contextPath}/img/logo.jpg">
 
 <!-- all css here -->
 <!-- bootstrap v3.3.6 css -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <!-- animate css -->
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
 <!-- meanmenu css -->
-<link rel="stylesheet" href="css/meanmenu.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/meanmenu.min.css">
 <!-- owl.carousel css -->
-<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.css">
 <!-- font-awesome css -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
 <!-- flexslider.css-->
-<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flexslider.css">
 <!-- chosen.min.css-->
-<link rel="stylesheet" href="css/chosen.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/chosen.min.css">
 <!-- style css -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <!-- responsive css -->
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css">
 <!-- modernizr css -->
-<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-	<%
-		if (request.getSession().getAttribute("shoppingCart") == null) {
-			ShoppingCart shoppingCart = new ShoppingCart();
-			request.getSession().setAttribute("shoppingCart", shoppingCart);
-		}
-		if (request.getSession().getAttribute("user") == null) {
-			response.sendRedirect(request.getContextPath() + "/login.jsp");
-		}
-		List<Book> books = DaoFactory.getBookDao().getAllBooks();
-		request.setAttribute("books", books);
-	%>
-	<%@include file="header.jsp"%>
+	<%@include file="/header.jsp"%>
 	<!-- banner-area-start -->
 	<div class="banner-area banner-res-large ptb-35">
 		<div class="container">
@@ -54,7 +41,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="single-banner">
 						<div class="banner-img">
-							<a><img src="img/banner/1.png" alt="banner" /></a>
+							<a><img src="${pageContext.request.contextPath}/img/banner/1.png" alt="banner" /></a>
 						</div>
 						<div class="banner-text">
 							<h4>免费送货</h4>
@@ -65,7 +52,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="single-banner">
 						<div class="banner-img">
-							<a><img src="img/banner/2.png" alt="banner" /></a>
+							<a><img src="${pageContext.request.contextPath}/img/banner/2.png" alt="banner" /></a>
 						</div>
 						<div class="banner-text">
 							<h4>退款保证</h4>
@@ -76,7 +63,7 @@
 				<div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
 					<div class="single-banner">
 						<div class="banner-img">
-							<a><img src="img/banner/3.png" alt="banner" /></a>
+							<a><img src="${pageContext.request.contextPath}/img/banner/3.png" alt="banner" /></a>
 						</div>
 						<div class="banner-text">
 							<h4>货到付款</h4>
@@ -87,7 +74,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="single-banner mrg-none-xs">
 						<div class="banner-img">
-							<a><img src="img/banner/4.png" alt="banner" /></a>
+							<a><img src="${pageContext.request.contextPath}/img/banner/4.png" alt="banner" /></a>
 						</div>
 						<div class="banner-text">
 							<h4>帮助支持</h4>
@@ -104,7 +91,7 @@
 		<div class="slider-active owl-carousel">
 
 			<div class="single-slider slider-h1-2 pt-215 pb-100 bg-img"
-				style="background-image: url(img/slider/1.jpg);">
+				style="background-image: url(${pageContext.request.contextPath}/img/slider/1.jpg);">
 				<div class="container">
 					<div class="slider-content slider-content-2 slider-animated-1">
 						<h1>最大的销售平台</h1>
@@ -115,7 +102,7 @@
 				</div>
 			</div>
 			<div class="single-slider slider-h1-2 pt-215 pb-100 bg-img"
-				style="background-image: url(img/slider/2.jpg);">
+				style="background-image: url(${pageContext.request.contextPath}/img/slider/2.jpg);">
 				<div class="container">
 					<div class="slider-content slider-content-2 slider-animated-1">
 						<h1>我们可以帮助你</h1>
@@ -159,12 +146,12 @@
 						<c:forEach items="${books }" var="book" begin="1" end="8">
 							<div class="product-wrapper">
 								<div class="product-img">
-									<img src="${pageContext.request.contextPath }${book.cover}" alt="book" class="primary" />
+									<img src="${pageContext.request.contextPath }/${book.cover}" alt="book" class="primary" />
 									<div class="quick-view">
 										<!-- <a class="action-view"   data-target="#productModal" data-toggle="modal"
 											title="Quick View"> <i class="fa fa-search-plus"></i>
 										</a> -->
-										<a href="${pageContext.request.contextPath }/ProductServlet?id=${book.id}"><i
+										<a href="${pageContext.request.contextPath }/book/${book.id}"><i
 											class="fa fa-search-plus"></i></a>
 									</div>
 									<div class="product-flag">
@@ -331,7 +318,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="banner-img-2">
-						<a><img src="img/banner/5.jpg" alt="banner" /></a>
+						<a><img src="${pageContext.request.contextPath}/img/banner/5.jpg" alt="banner" /></a>
 						<div class="banner-text">
 							<h3></h3>	<!-- xietext -->
 							<h2></h2>
@@ -364,7 +351,7 @@
 						</div>
 					</div>
 					<div class="banner-img-2">
-						<a><img src="img/banner/6.jpg" alt="banner" /></a>
+						<a><img src="${pageContext.request.contextPath}/img/banner/6.jpg" alt="banner" /></a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -372,7 +359,7 @@
 						<div class="bestseller-total">
 							<div class="single-bestseller mb-25">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/13.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/13.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -394,7 +381,7 @@
 							</div>
 							<div class="single-bestseller">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/14.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/14.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -417,7 +404,7 @@
 						<div class="bestseller-total">
 							<div class="single-bestseller mb-25">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/15.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/15.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -438,7 +425,7 @@
 							</div>
 							<div class="single-bestseller">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/16.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/16.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -461,7 +448,7 @@
 						<div class="bestseller-total">
 							<div class="single-bestseller mb-25">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/17.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/17.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -481,7 +468,7 @@
 							</div>
 							<div class="single-bestseller">
 								<div class="bestseller-img">
-									<a  ><img src="img/product/14.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/14.jpg" alt="book" /></a>
 									<div class="product-flag">
 										<ul>
 											<li><span class="sale">新品</span></li>
@@ -513,12 +500,12 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="banner-shadow-hover xs-mb">
-						<a  ><img src="img/banner/8.jpg" alt="banner" /></a>
+						<a  ><img src="${pageContext.request.contextPath}/img/banner/8.jpg" alt="banner" /></a>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="banner-shadow-hover">
-						<a  ><img src="img/banner/9.jpg" alt="banner" /></a>
+						<a  ><img src="${pageContext.request.contextPath}/img/banner/9.jpg" alt="banner" /></a>
 					</div>
 				</div>
 			</div>
@@ -537,7 +524,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/20.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/20.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -562,7 +549,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/21.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/21.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -587,7 +574,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/22.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/22.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -613,7 +600,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/23.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/23.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -638,7 +625,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/24.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/24.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -663,7 +650,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/22.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/22.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -696,7 +683,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/23.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/23.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -721,7 +708,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/24.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/24.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -746,7 +733,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/26.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/26.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -772,7 +759,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/20.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/20.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -797,7 +784,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/21.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/21.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -822,7 +809,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/22.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/22.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -855,7 +842,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/27.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/27.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -880,7 +867,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/28.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/28.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -905,7 +892,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/29.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/29.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -932,7 +919,7 @@
 						<div class="product-total-2">
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/23.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/23.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -957,7 +944,7 @@
 							</div>
 							<div class="single-most-product bd mb-18">
 								<div class="most-product-img">
-									<a  ><img src="img/product/24.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/24.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -982,7 +969,7 @@
 							</div>
 							<div class="single-most-product">
 								<div class="most-product-img">
-									<a  ><img src="img/product/22.jpg" alt="book" /></a>
+									<a  ><img src="${pageContext.request.contextPath}/img/product/22.jpg" alt="book" /></a>
 								</div>
 								<div class="most-product-content">
 									<div class="product-rating">
@@ -1039,30 +1026,30 @@
 
 	<!-- all js here -->
 	<!-- jquery latest version -->
-	<script src="js/vendor/jquery-1.12.0.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/vendor/jquery-1.12.0.min.js"></script>
 	<!-- bootstrap js -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 	<!-- owl.carousel js -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
 	<!-- meanmenu js -->
-	<script src="js/jquery.meanmenu.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
-	<script src="js/wow.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/wow.min.js"></script>
 	<!-- jquery.parallax-1.1.3.js -->
-	<script src="js/jquery.parallax-1.1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.parallax-1.1.3.js"></script>
 	<!-- jquery.countdown.min.js -->
-	<script src="js/jquery.countdown.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.countdown.min.js"></script>
 	<!-- jquery.flexslider.js -->
-	<script src="js/jquery.flexslider.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.flexslider.js"></script>
 	<!-- chosen.jquery.min.js -->
-	<script src="js/chosen.jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/chosen.jquery.min.js"></script>
 	<!-- jquery.counterup.min.js -->
-	<script src="js/jquery.counterup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.counterup.min.js"></script>
 	<!-- waypoints.min.js -->
-	<script src="js/waypoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/waypoints.min.js"></script>
 	<!-- plugins js -->
-	<script src="js/plugins.js"></script>
+	<script src="${pageContext.request.contextPath}/js/plugins.js"></script>
 	<!-- main js -->
-	<script src="js/main.js"></script>
+	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 </body>
 </html>

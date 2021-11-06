@@ -15,7 +15,7 @@
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="language-area">
 						<ul>
-							<li><a href="${pageContext.request.contextPath }/adminLogin.jsp">点击进入后台管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/adminLogin.jsp">点击进入后台管理</a></li>
 						</ul>
 					</div>
 
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
 					<div class="logo-area text-center logo-xs-mrg">
-						<a href="index.jsp"><img src="${pageContext.request.contextPath }/img/logo/logo.png" alt="logo" /></a>
+						<a href="${pageContext.request.contextPath }/to/index"><img src="${pageContext.request.contextPath }/img/logo/logo.png" alt="logo" /></a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -61,7 +61,7 @@
 						<ul>
 
 
-							<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
+							<li><a href="${pageContext.request.contextPath}/cart.jsp"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
 
 								<div class="mini-cart-sub">
 									<div class="cart-product">
@@ -116,7 +116,7 @@
 				<div class="menu-area">
 					<nav>
 						<ul>
-							<li class="active"><a href="${pageContext.request.contextPath }/WEB-INF/jsp/index.jsp">首页<i
+							<li class="active"><a href="${pageContext.request.contextPath }/to/index">首页<i
 									class="fa fa-angle-down"></i></a></li>
 							<c:forEach var="rootCategory" items="${rootCategories }">
 								<li><a>${ rootCategory.name}<i class="fa fa-angle-down"></i></a>

@@ -46,7 +46,7 @@
 				<div class="col-lg-12">
 					<div class="breadcrumbs-menu">
 						<ul>
-							<li><a href="${pageContext.request.contextPath }/toIndex">首页</a></li>
+							<li><a href="${pageContext.request.contextPath }/to/index">首页</a></li>
 							<li><a  class="active">登陆</a></li>
 						</ul>
 					</div>
@@ -70,7 +70,8 @@
 
 					<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
 						<div class="login-form">
-							<p style="color: red" id="txtLoginErr">${message}</p>
+							<p styl
+                               e="color: red" id="txtLoginErr">${message}</p>
 							<div class="single-login">
 								<label>用户名<span>*</span></label> <input type="text" name="username"  id="txtUsername"/>
 							</div>

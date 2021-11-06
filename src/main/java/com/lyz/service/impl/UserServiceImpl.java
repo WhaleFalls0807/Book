@@ -28,14 +28,15 @@ public class UserServiceImpl implements UserService {
 
 
         if (user1 != null){
-            if (user2 != null){
-                return "username";
-            }else{
-                return "nickname";
-            }
+
+            return "昵称";
+        }
+
+        if (user2 != null){
+            return "账号";
+
         }
         return null;
-
     }
 
     public int addUser(User user){
@@ -50,9 +51,8 @@ public class UserServiceImpl implements UserService {
 
         user.setPassword(MD5password);
 
-        int i = userMapper.addUser(user);
+        return  userMapper.addUser(user);
 
-        return i;
     }
 
     @Override
