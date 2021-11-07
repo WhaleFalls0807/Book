@@ -72,5 +72,10 @@ public class BookServiceImpl implements BookService {
         return bookMapper.updateBook(book);
     }
 
+    @Override
+    public List<Book> getAllBookByName(String bookName) {
+        return bookMapper.getAllBookByName(bookName);
+    }
+
 
 }

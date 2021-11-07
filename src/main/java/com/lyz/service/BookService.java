@@ -22,4 +22,6 @@ public interface BookService {
 
     int updateBook(String id,String name,String price,String author,String stock,String introduction,String provid,String cover);
 
+    List<Book> getAllBookByName(String bookName);
+
 }

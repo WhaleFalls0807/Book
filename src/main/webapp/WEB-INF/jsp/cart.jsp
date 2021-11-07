@@ -10,29 +10,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.png">
 
 <!-- all css here -->
 <!-- bootstrap v3.3.6 css -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 <!-- animate css -->
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="../../css/animate.css">
 <!-- meanmenu css -->
-<link rel="stylesheet" href="css/meanmenu.min.css">
+<link rel="stylesheet" href="../../css/meanmenu.min.css">
 <!-- owl.carousel css -->
-<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="../../css/owl.carousel.css">
 <!-- font-awesome css -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/font-awesome.min.css">
 <!-- flexslider.css-->
-<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="../../css/flexslider.css">
 <!-- chosen.min.css-->
-<link rel="stylesheet" href="css/chosen.min.css">
+<link rel="stylesheet" href="../../css/chosen.min.css">
 <!-- style css -->
 <link rel="stylesheet" href="style.css">
 <!-- responsive css -->
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="../../css/responsive.css">
 <!-- modernizr css -->
-<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
 <script type="text/javascript">
 
          //改变购物项数量
@@ -58,7 +58,7 @@
 
 <body class="cart">
 
-	<%@include file="header.jsp"%>
+	<%@include file="../../header.jsp"%>
 	<!-- breadcrumbs-area-start -->
 	<div class="breadcrumbs-area mb-70">
 		<div class="container">
@@ -166,7 +166,7 @@
 						<div class="wc-proceed-to-checkout">
 							<c:if test="${user == null }">
 								<span>您还没有登录，请登录后再付款！ →</span>
-								<a href="login.jsp">登录</a>
+								<a href="../../login.jsp">登录</a>
 							</c:if>
 							<c:if test="${user != null }">
 								<a href="checkout.jsp">BUY</a>
@@ -186,30 +186,30 @@
 
 	<!-- all js here -->
 	<!-- jquery latest version -->
-	<script src="js/vendor/jquery-1.12.0.min.js"></script>
+	<script src="../../js/vendor/jquery-1.12.0.min.js"></script>
 	<!-- bootstrap js -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 	<!-- owl.carousel js -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="../../js/owl.carousel.min.js"></script>
 	<!-- meanmenu js -->
-	<script src="js/jquery.meanmenu.js"></script>
+	<script src="../../js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
-	<script src="js/wow.min.js"></script>
+	<script src="../../js/wow.min.js"></script>
 	<!-- jquery.parallax-1.1.3.js -->
-	<script src="js/jquery.parallax-1.1.3.js"></script>
+	<script src="../../js/jquery.parallax-1.1.3.js"></script>
 	<!-- jquery.countdown.min.js -->
-	<script src="js/jquery.countdown.min.js"></script>
+	<script src="../../js/jquery.countdown.min.js"></script>
 	<!-- jquery.flexslider.js -->
-	<script src="js/jquery.flexslider.js"></script>
+	<script src="../../js/jquery.flexslider.js"></script>
 	<!-- chosen.jquery.min.js -->
-	<script src="js/chosen.jquery.min.js"></script>
+	<script src="../../js/chosen.jquery.min.js"></script>
 	<!-- jquery.counterup.min.js -->
-	<script src="js/jquery.counterup.min.js"></script>
+	<script src="../../js/jquery.counterup.min.js"></script>
 	<!-- waypoints.min.js -->
-	<script src="js/waypoints.min.js"></script>
+	<script src="../../js/waypoints.min.js"></script>
 	<!-- plugins js -->
-	<script src="js/plugins.js"></script>
+	<script src="../../js/plugins.js"></script>
 	<!-- main js -->
-	<script src="js/main.js"></script>
+	<script src="../../js/main.js"></script>
 </body>
 </html>

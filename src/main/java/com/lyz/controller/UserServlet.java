@@ -99,5 +99,12 @@ public class UserServlet {
         return "index";
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession httpSession){
+
+        httpSession.removeAttribute("user");
+        return "redirect:/login.jsp";
+    }
+
 
 }

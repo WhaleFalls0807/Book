@@ -5,6 +5,7 @@ import com.lyz.mapper.OrderMapper;
 import com.lyz.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -22,4 +23,13 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAllOrders() {
         return orderMapper.getAllOrders();
     }
+
+    @Override
+    public List<Order> getOrderById(int id) {
+        List<Order> orderById = orderMapper.getOrderById(id);
+
+        return orderById;
+    }
+
+
 }

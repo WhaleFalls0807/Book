@@ -6,13 +6,16 @@ import com.lyz.service.BookService;
 import com.lyz.service.CategoryService;
 import com.lyz.util.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -91,4 +94,11 @@ public class BookServlet {
     }
 
 
+    @RequestMapping("/search/{bookName}")
+    public String searchBook(@PathVariable("bookName") String bookName, HttpServletRequest httpRequest){
+        List<Book> allBookByName = bookService.getAllBookByName(bookName);
+
+        httpRequest.setAttribute("books",allBookByName);
+        return "search";
+    }
 }

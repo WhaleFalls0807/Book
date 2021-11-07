@@ -21,6 +21,16 @@
         </where>
     </select>
 
+    <select id="getAllBookByName" parameterType="String" resultType="Book">
+        select * from book
+        <where>
+            <if test="_parameter!=null">
+                name like #{name}
+            </if>
+        </where>
+    </select>
+
+
     <select id="getBooksByCategoryName" resultType="Book">
         select * from book where categoryName = #{categoryName}
     </select>

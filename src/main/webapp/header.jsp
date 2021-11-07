@@ -3,7 +3,7 @@
 <script type="text/javascript">
 	function selectname() {
 		var search = document.getElementById("search").value;
-		location.href = 'SearchServlet?search=' + search;
+		location.href = "${pageContext.request.contextPath }/book/search/" + search;
 	}
 </script>
 <header>
@@ -27,8 +27,8 @@
 								<li><a href="login.jsp">登录</a></li>
 							</c:if>
 							<c:if test="${user != null }">
-								<li>欢迎您，${user.nickname }！<a href="order.jsp">查看订单</a></li>
-								<li><a href="${pageContext.request.contextPath }/LogoutServlet">注销</a></li>
+								<li>欢迎您，${user.nickname }！<a href="${pageContext.request.contextPath }/to/order/${user.id}">查看订单</a></li>
+								<li><a href="${pageContext.request.contextPath }/user/logout">注销</a></li>
 							</c:if>
 							<li><a href="register.jsp">注册</a></li>
 
@@ -61,7 +61,7 @@
 						<ul>
 
 
-							<li><a href="${pageContext.request.contextPath}/cart.jsp"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
+							<li><a href="${pageContext.request.contextPath}/WEB-INF/jsp/cart.jsp"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
 
 								<div class="mini-cart-sub">
 									<div class="cart-product">

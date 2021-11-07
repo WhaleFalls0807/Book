@@ -28,6 +28,8 @@ public interface BookMapper {
 	 * @param name
 	 * @return
 	 */
+	List<Book> getAllBookByName(String name);
+
 	Book getBookByName(String name);
 
 	List<Book> getBooksByCategoryName(String categoryName) ;

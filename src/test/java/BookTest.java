@@ -1,12 +1,16 @@
 import com.lyz.bean.Book;
+import com.lyz.bean.Order;
 import com.lyz.mapper.BookMapper;
 import com.lyz.service.BookService;
+import com.lyz.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import java.util.List;
 
 /**
  * @AUTHOR LYZ
@@ -24,6 +28,8 @@ public class BookTest extends BaseTest{
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private OrderService orderService;
 
 
     @Test
@@ -46,4 +52,10 @@ public class BookTest extends BaseTest{
         bookService.deleteById(91);
     }
 
+
+    @Test
+    public void testForOrder(){
+        List<Order> orderById = orderService.getOrderById(1);
+        System.out.println(orderById);
+    }
 }
