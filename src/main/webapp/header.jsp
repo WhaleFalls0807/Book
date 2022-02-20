@@ -61,7 +61,7 @@
 						<ul>
 
 
-							<li><a href="${pageContext.request.contextPath}/WEB-INF/jsp/cart.jsp"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
+							<li><a href="${pageContext.request.contextPath}/cart/to/cart"><i class="fa fa-shopping-cart"></i>我的购物车</a> <span>${(sessionScope.shoppingCart.num==0)?0:sessionScope.shoppingCart.num}</span>
 
 								<div class="mini-cart-sub">
 									<div class="cart-product">

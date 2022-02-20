@@ -1,7 +1,10 @@
 package com.lyz.mapper;
 
 import com.lyz.bean.Book;
+import com.lyz.bean.Cart;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @AUTHOR LYZ
@@ -10,7 +13,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CartMapper {
 
-    int addItem(Book book);
+    int addItem(Cart cart);
 
+    int addCartItemCount(Integer userId,Integer bookId,Integer count);
 
+    List<Cart> getCartByUserId(Integer userId);
+
+    Cart getCartByBookId(Integer userId,Integer bookId);
 }
